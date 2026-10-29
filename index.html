@@ -237,6 +237,7 @@ img { max-width: 100%; display: block; }
 .figure { margin: 0; }
 .figure img { width: 100%; height: auto; border-radius: var(--r-1); border: 1px solid var(--hairline); background: var(--bg-plate); }
 .figure figcaption { margin-top: .8rem; }
+.figure--shot img { border-radius: 6px; background: #fff; padding: .4rem .6rem; }
 .figure--tall img { max-height: 82vh; width: auto; max-width: 100%; }
 .figure--video video { display: block; height: min(78vh, 720px); width: auto; max-width: 100%; aspect-ratio: 464 / 848; object-fit: cover; border-radius: var(--r-1); border: 1px solid var(--hairline); background: var(--bg-plate); }
 
@@ -466,7 +467,7 @@ img { max-width: 100%; display: block; }
    Links you can fill in later: leave '' to hide that card or button.
    ============================================================ */
 const LINKS = {
-  worldin30sec: '',      // YouTube channel URL
+  worldin30sec: 'https://www.youtube.com/@WorldIn30s',      // YouTube channel URL
   sagepilot: '',         // SagePilot launch video URL
   linkedin: '',          // Your LinkedIn profile URL
   email: 'harshil4304@gmail.com'
@@ -542,7 +543,8 @@ const STORY = {
         blocks: [
           { t: 'p', text: 'Also in third year, as a core member of Gurjari at BITS Goa, I handled the planning for our Garba night. More than 1,000 people came. I had a team of 5 and three weeks to sort out every bit of logistics.',
             aside: [{ t: 'fact', num: '1,000+', label: 'People on the night', text: 'A team of 5, three weeks.' }] },
-          { t: 'p', text: "An event like that doesn't give you a second try. If nobody owns a detail, it just doesn't happen." }
+          { t: 'p', text: "An event like that doesn't give you a second try. If nobody owns a detail, it just doesn't happen." },
+          { t: 'photo', src: 'images/garba-night.webp', w: 1280, h: 960, alt: 'Harshil with three friends in kurtas at the Garba night at BITS Goa, with string lights and a crowd behind them', cap: 'Garba night, BITS Goa' }
         ] }
     ] },
     { title: 'Internships', span: '2025', chapters: [
@@ -552,6 +554,7 @@ const STORY = {
           { t: 'p', text: "Almost everyone I knew had started. I spent two months waiting, one of the last 50 students on a campus of 3,000 without an internship. It wasn't about my skills. The offers just kept falling through.",
             aside: [{ t: 'fact', num: '50 / 3,000', label: 'Still without an internship' }] },
           { t: 'p', text: "When Ditto came to campus, I decided I wasn't going to wait for someone to pick me. I messaged their HR directly and told them I really liked what they were building and wanted to be part of it. They set up an interview, I cleared four or five rounds, and I got my first big break." },
+          { t: 'shot', src: 'images/ditto-welcome-email.webp', w: 1228, h: 148, alt: 'Email subject line reading: Welcome to Ditto by Finshots, Harshil Nareshbhai Chaudhari', cap: 'The email that ended two months of waiting' },
           { t: 'photo', src: 'images/ditto-office.webp', w: 960, h: 1280, tall: true, alt: 'Harshil standing under the Ditto logo on his first day in the Ditto office', cap: 'First day at Ditto, Bengaluru' }
         ] },
       { id: 'ditto', title: 'From the worst review to an offer', date: 'Aug to Dec 2025', short: '2025', place: 'Bengaluru, India', threads: ['work', 'setback'], motif: 'work',
@@ -641,6 +644,8 @@ const STORY = {
         return `<div class="row row--wide rise"><figure class="figure${b.tall ? ' figure--tall' : ''}"><img src="${b.src}" width="${b.w}" height="${b.h}" alt="${esc(b.alt)}" loading="lazy" decoding="async"><figcaption class="label">${esc(b.cap)}</figcaption></figure></div>`;
       case 'video':
         return `<div class="row row--wide rise"><figure class="figure figure--video"><video controls playsinline preload="none" poster="${b.poster}" width="${b.w}" height="${b.h}" aria-label="${esc(b.label)}"><source src="${b.src}" type="video/mp4"></video><figcaption class="label">${esc(b.cap)}</figcaption></figure></div>`;
+      case 'shot':
+        return `<div class="row rise"><figure class="main figure figure--shot"><img src="${b.src}" width="${b.w}" height="${b.h}" alt="${esc(b.alt)}" loading="lazy" decoding="async"><figcaption class="label">${esc(b.cap)}</figcaption></figure></div>`;
       case 'quote':
         return `<div class="row rise"><blockquote class="main quote"><p style="margin:0">${esc(b.text)}</p></blockquote></div>`;
       case 'dialogue':

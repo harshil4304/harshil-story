@@ -747,13 +747,10 @@ const STORY = {
       <div class="rise" style="display:grid;gap:1rem">
         <h2 class="display" id="coda-title">${dotTitle(STORY.coda.title)}</h2>
       </div>
-      <div class="ctas rise">
-        ${LINKS.linkedin ? `<a class="btn" href="${esc(LINKS.linkedin)}" target="_blank" rel="noopener">LinkedIn <span class="arr">→</span></a>` : ''}
-      </div>
       <div class="email-row rise"><span class="label">Email</span><code id="email-text">${esc(LINKS.email)}</code><button class="ghost" type="button" data-copy="${esc(LINKS.email)}">Copy</button></div>
       <div class="rule-red" aria-hidden="true"></div>
-      <div class="share" aria-label="Share this story">
-        <a href="https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}" target="_blank" rel="noopener" aria-label="Share on LinkedIn">${shareIcons.linkedin}</a>
+      <div class="share" aria-label="Links">
+        <a href="${esc(LINKS.linkedin)}" target="_blank" rel="noopener" aria-label="Harshil on LinkedIn">${shareIcons.linkedin}</a>
         <button type="button" data-copy="${esc(shareUrl)}" aria-label="Copy link">${shareIcons.link}</button>
       </div>
     </section>
